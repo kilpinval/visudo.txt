@@ -1,1 +1,96 @@
 
+Para ver todos los usuarios en un sistema Linux/Unix, puedes usar los siguientes comandos:
+
+1. Listar usuarios del sistema (archivo /etc/passwd):
+
+```bash
+cat /etc/passwd
+```
+
+Cada línea muestra un usuario con el formato:
+usuario:x:UID:GID:descripción:directorio_home:shell
+
+---
+
+2. Solo los nombres de usuario:
+
+```bash
+cut -d: -f1 /etc/passwd
+```
+
+Este comando extrae solo el primer campo (nombre de usuario) de cada línea.
+
+---
+
+3. Usuarios que pueden iniciar sesión (excluye cuentas de sistema):
+
+```bash
+getent passwd | grep -v "/bin/false\|/usr/sbin/nologin" | cut -d: -f1
+```
+
+---
+
+4. En sistemas con /etc/passwd y servicios de red (LDAP, NIS):
+
+```bash
+getent passwd
+```
+
+Este comando muestra usuarios locales y remotos si el sistema está configurado para usar servicios de red.
+
+
+---
+
+Notas:
+
+· Los usuarios tienen un UID (User ID). Los UID menores de 1000 suelen ser cuentas de sistema.
+· El comando who o w muestra usuarios actualmente logueados, no todos los existentes.
+
+¿Necesitas ayuda con un sistema en particular (ej. Windows, macOS)? 😊
+Para ver todos los usuarios en un sistema Linux/Unix, puedes usar los siguientes comandos:
+
+1. Listar usuarios del sistema (archivo /etc/passwd):
+
+```bash
+cat /etc/passwd
+```
+
+Cada línea muestra un usuario con el formato:
+usuario:x:UID:GID:descripción:directorio_home:shell
+
+---
+
+2. Solo los nombres de usuario:
+
+```bash
+cut -d: -f1 /etc/passwd
+```
+
+Este comando extrae solo el primer campo (nombre de usuario) de cada línea.
+
+---
+
+3. Usuarios que pueden iniciar sesión (excluye cuentas de sistema):
+
+```bash
+getent passwd | grep -v "/bin/false\|/usr/sbin/nologin" | cut -d: -f1
+```
+
+---
+
+4. En sistemas con /etc/passwd y servicios de red (LDAP, NIS):
+
+```bash
+getent passwd
+```
+
+Este comando muestra usuarios locales y remotos si el sistema está configurado para usar servicios de red.
+
+---
+
+Notas:
+
+· Los usuarios tienen un UID (User ID). Los UID menores de 1000 suelen ser cuentas de sistema.
+· El comando who o w muestra usuarios actualmente logueados, no todos los existentes.
+
+¿Necesitas ayuda con un sistema en particular (ej. Windows, macOS)? 😊
